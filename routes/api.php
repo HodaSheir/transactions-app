@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\PaymentsController;
 use App\Http\Controllers\Api\TransactionsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('transaction', TransactionsController::class)->only('store');
+    Route::resource('payment', PaymentsController::class)->only('store');
 });
