@@ -14,4 +14,9 @@ class Payment extends Model
     {
         return $this->belongsTo(Transaction::class);
     }
+
+    public function addedBy()
+    {
+        return $this->belongsTo(User::class, 'added_by', 'id');
+    }
 }

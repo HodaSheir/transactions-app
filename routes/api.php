@@ -19,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
-    Route::resource('transaction', TransactionsController::class)->only('store');
+    Route::resource('transaction', TransactionsController::class)->only('store','index');
     Route::resource('payment', PaymentsController::class)->only('store');
 });

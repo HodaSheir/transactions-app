@@ -38,4 +38,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transaction::class, 'customer_id');
     }
+
+    public function addedTransactions()
+    {
+        return $this->hasMany(Transaction::class, 'added_by', 'id');
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class, 'user_id', 'id');
+    }
 }

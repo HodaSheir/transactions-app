@@ -14,4 +14,14 @@ class Transaction extends Model
     {
         return $this->hasMany(Payment::class);
     }
+
+    public function addedBy()
+    {
+        return $this->belongsTo(User::class, 'added_by', 'id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(User::class, 'customer_id');
+    }
 }
